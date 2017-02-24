@@ -1,0 +1,24 @@
+<a href="/sessions" data-method="delete">Log Out</a>
+<p>Name: <%= @user.first_name + " " + @user.last_name %></p>
+<p>Amount Needed: $<%= @user.money %></p>
+<p>Amount Raised: $<%= @user.raised %></p>
+<br>
+<p>List of people who lent you money</p>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Amount Lent</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @lenders.each do |l| %>
+		<tr>
+			<td><%= l.first_name + " " + l.last_name %></td>
+			<td><%= l.email %></td>
+			<td>$<%= l.amount %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
